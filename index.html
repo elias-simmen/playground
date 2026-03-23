@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elias Simmen — Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-text"><span class="loader-name">ES</span></div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-subtitle">Initializing...</p>
+    </div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>ES<span class="logo-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link active" data-section="hero">Home</a></li>
+      <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+      <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+      <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+      <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon sun">☀</span>
+        <span class="theme-icon moon">☾</span>
+      </button>
+      <button class="nav-cta magnetic" data-magnetic>Hire Me</button>
+    </div>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#hero" class="mobile-link">Home</a></li>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#experience" class="mobile-link">Experience</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-greeting reveal-up">Hello, I'm</p>
+      <h1 class="hero-name glitch" data-text="Elias Simmen">Elias Simmen</h1>
+      <div class="hero-typewriter">
+        <span id="typewriter"></span><span class="cursor-blink">|</span>
+      </div>
+      <p class="hero-desc reveal-up delay-3">
+        I craft digital experiences that are fast, beautiful, and purposeful.
+      </p>
+      <div class="hero-buttons reveal-up delay-4">
+        <a href="#projects" class="btn-primary magnetic" data-magnetic>View My Work</a>
+        <a href="#contact" class="btn-secondary magnetic" data-magnetic>Get In Touch</a>
+      </div>
+      <div class="hero-scroll-indicator">
+        <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+        <span>Scroll Down</span>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-ring"></div>
+      <div class="badge-text">Available for Work • Open to Opportunities •</div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">01 / About</span>
+        <h2 class="section-title">Who I Am</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-image-wrap reveal-left">
+          <div class="about-image-frame">
+            <div class="about-image-placeholder">
+              <div class="avatar-initials">ES</div>
+            </div>
+            <div class="image-border-anim"></div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item" data-count="3" data-suffix="+">
+              <span class="stat-number">0</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item" data-count="20" data-suffix="+">
+              <span class="stat-number">0</span>
+              <span class="stat-label">Projects Done</span>
+            </div>
+            <div class="stat-item" data-count="10" data-suffix="+">
+              <span class="stat-number">0</span>
+              <span class="stat-label">Happy Clients</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text reveal-right">
+          <h3 class="about-subtitle">Full-Stack Developer & UI Enthusiast</h3>
+          <p>
+            I'm a passionate developer who loves turning complex problems into elegant, intuitive solutions.
+            With a strong foundation in both frontend and backend technologies, I build products that users love.
+          </p>
+          <p>
+            When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects,
+            or leveling up my design skills. I believe great software is where performance meets beauty.
+          </p>
+          <div class="about-tags">
+            <span class="tag">React</span><span class="tag">Node.js</span>
+            <span class="tag">TypeScript</span><span class="tag">UI/UX</span>
+            <span class="tag">Open Source</span><span class="tag">Problem Solving</span>
+          </div>
+          <a href="#contact" class="btn-primary magnetic" data-magnetic>Let's Talk</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">02 / Skills</span>
+        <h2 class="section-title">What I Work With</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-bars reveal-left">
+          <h3 class="skills-category">Technical Proficiency</h3>
+          <div class="skill-item" data-skill="JavaScript / TypeScript" data-level="92">
+            <div class="skill-header">
+              <span class="skill-name">JavaScript / TypeScript</span>
+              <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-item" data-skill="React / Next.js" data-level="88">
+            <div class="skill-header">
+              <span class="skill-name">React / Next.js</span>
+              <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-item" data-skill="Node.js / Express" data-level="82">
+            <div class="skill-header">
+              <span class="skill-name">Node.js / Express</span>
+              <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-item" data-skill="CSS / Tailwind" data-level="90">
+            <div class="skill-header">
+              <span class="skill-name">CSS / Tailwind</span>
+              <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-item" data-skill="Python" data-level="75">
+            <div class="skill-header">
+              <span class="skill-name">Python</span>
+              <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-item" data-skill="Databases (SQL / NoSQL)" data-level="80">
+            <div class="skill-header">
+              <span class="skill-name">Databases (SQL / NoSQL)</span>
+              <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
+        </div>
+        <div class="skills-icons reveal-right">
+          <h3 class="skills-category">Tools & Technologies</h3>
+          <div class="tech-grid">
+            <div class="tech-card" data-tilt><span class="tech-icon">⚛</span><span>React</span></div>
+            <div class="tech-card" data-tilt><span class="tech-icon">▲</span><span>Next.js</span></div>
+            <div class="tech-card" data-tilt><span class="tech-icon">🟢</span><span>Node.js</span></div>
+            <div class="tech-card" data-tilt><span class="tech-icon">🔷</span><span>TypeScript</span></div>
+            <div class="tech-card" data-tilt><span class="tech-icon">🐍</span><span>Python</span></div>
+            <div class="tech-card" data-tilt><span class="tech-icon">🐳</span><span>Docker</span></div>
+            <div class="tech-card" data-tilt><span class="tech-icon">🔥</span><span>Firebase</span></div>
+            <div class="tech-card" data-tilt><span class="tech-icon">☁</span><span>AWS</span></div>
+            <div class="tech-card" data-tilt><span class="tech-icon">🐙</span><span>GitHub</span></div>
+            <div class="tech-card" data-tilt><span class="tech-icon">🎨</span><span>Figma</span></div>
+            <div class="tech-card" data-tilt><span class="tech-icon">🍃</span><span>MongoDB</span></div>
+            <div class="tech-card" data-tilt><span class="tech-icon">🐘</span><span>PostgreSQL</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">03 / Projects</span>
+        <h2 class="section-title">Featured Work</h2>
+      </div>
+      <div class="project-filter reveal-up">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="app">App</button>
+        <button class="filter-btn" data-filter="tool">Tool</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+
+        <div class="project-card tilt-card" data-category="web" data-tilt>
+          <div class="project-image">
+            <div class="project-placeholder" style="--c1:#6366f1;--c2:#8b5cf6"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic" data-magnetic>Live Demo</a>
+              <a href="#" class="project-link magnetic" data-magnetic>GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+            <h3>E-Commerce Platform</h3>
+            <p>A full-stack e-commerce solution with real-time inventory, payments via Stripe, and an admin dashboard.</p>
+          </div>
+          <div class="project-number">01</div>
+        </div>
+
+        <div class="project-card tilt-card" data-category="app" data-tilt>
+          <div class="project-image">
+            <div class="project-placeholder" style="--c1:#06b6d4;--c2:#3b82f6"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic" data-magnetic>Live Demo</a>
+              <a href="#" class="project-link magnetic" data-magnetic>GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span></div>
+            <h3>Task Management App</h3>
+            <p>A collaborative productivity tool with drag-and-drop boards, real-time updates, and team workspaces.</p>
+          </div>
+          <div class="project-number">02</div>
+        </div>
+
+        <div class="project-card tilt-card" data-category="tool" data-tilt>
+          <div class="project-image">
+            <div class="project-placeholder" style="--c1:#10b981;--c2:#06b6d4"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic" data-magnetic>Live Demo</a>
+              <a href="#" class="project-link magnetic" data-magnetic>GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>Python</span><span>FastAPI</span><span>AI</span></div>
+            <h3>AI Code Reviewer</h3>
+            <p>An automated code review tool powered by AI that detects bugs, security issues, and style violations.</p>
+          </div>
+          <div class="project-number">03</div>
+        </div>
+
+        <div class="project-card tilt-card" data-category="web" data-tilt>
+          <div class="project-image">
+            <div class="project-placeholder" style="--c1:#f59e0b;--c2:#ef4444"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic" data-magnetic>Live Demo</a>
+              <a href="#" class="project-link magnetic" data-magnetic>GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>React</span><span>Firebase</span><span>WebRTC</span></div>
+            <h3>Video Chat Platform</h3>
+            <p>A peer-to-peer video conferencing app with screen sharing, virtual backgrounds, and chat.</p>
+          </div>
+          <div class="project-number">04</div>
+        </div>
+
+        <div class="project-card tilt-card" data-category="app" data-tilt>
+          <div class="project-image">
+            <div class="project-placeholder" style="--c1:#a855f7;--c2:#ec4899"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic" data-magnetic>Live Demo</a>
+              <a href="#" class="project-link magnetic" data-magnetic>GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>TypeScript</span><span>Electron</span><span>SQLite</span></div>
+            <h3>Desktop Notes App</h3>
+            <p>A rich-text desktop note-taking application with markdown support, tags, and offline sync.</p>
+          </div>
+          <div class="project-number">05</div>
+        </div>
+
+        <div class="project-card tilt-card" data-category="tool" data-tilt>
+          <div class="project-image">
+            <div class="project-placeholder" style="--c1:#14b8a6;--c2:#6366f1"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic" data-magnetic>Live Demo</a>
+              <a href="#" class="project-link magnetic" data-magnetic>GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span>Node.js</span><span>CLI</span><span>Docker</span></div>
+            <h3>DevOps CLI Tool</h3>
+            <p>A command-line toolkit for streamlining deployments, container management, and CI/CD pipelines.</p>
+          </div>
+          <div class="project-number">06</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">04 / Experience</span>
+        <h2 class="section-title">My Journey</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card" data-tilt>
+            <div class="timeline-date">2024 — Present</div>
+            <h3 class="timeline-role">Senior Frontend Developer</h3>
+            <div class="timeline-company">TechCorp Inc.</div>
+            <p>Led a team of 5 developers building a SaaS dashboard used by 50k+ users. Improved app performance by 40% through code splitting and caching strategies.</p>
+            <div class="timeline-tags">
+              <span>React</span><span>TypeScript</span><span>GraphQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card" data-tilt>
+            <div class="timeline-date">2022 — 2024</div>
+            <h3 class="timeline-role">Full-Stack Developer</h3>
+            <div class="timeline-company">StartupXYZ</div>
+            <p>Built the entire product from scratch — from database design to UI. Shipped MVP in 3 months, onboarded first 1,000 users within 2 weeks of launch.</p>
+            <div class="timeline-tags">
+              <span>Next.js</span><span>Node.js</span><span>PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card" data-tilt>
+            <div class="timeline-date">2021 — 2022</div>
+            <h3 class="timeline-role">Frontend Developer Intern</h3>
+            <div class="timeline-company">Digital Agency Co.</div>
+            <p>Developed responsive websites and landing pages for 15+ clients. Collaborated with designers to implement pixel-perfect UIs with smooth animations.</p>
+            <div class="timeline-tags">
+              <span>React</span><span>CSS</span><span>Figma</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card" data-tilt>
+            <div class="timeline-date">2018 — 2022</div>
+            <h3 class="timeline-role">B.Sc. Computer Science</h3>
+            <div class="timeline-company">University of Technology</div>
+            <p>Graduated with honors. Focused on software engineering, algorithms, and distributed systems. Thesis on real-time data synchronization architectures.</p>
+            <div class="timeline-tags">
+              <span>Algorithms</span><span>Systems</span><span>Research</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">05 / Contact</span>
+        <h2 class="section-title">Let's Work Together</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <p class="contact-intro">Have a project in mind or want to chat? My inbox is always open. Whether you have a question or just want to say hi, I'll get back to you!</p>
+          <div class="contact-links">
+            <a href="mailto:elias@example.com" class="contact-item magnetic" data-magnetic>
+              <div class="contact-icon">✉</div>
+              <div>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">elias@example.com</span>
+              </div>
+            </a>
+            <a href="#" class="contact-item magnetic" data-magnetic>
+              <div class="contact-icon">🐙</div>
+              <div>
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">github.com/eliassimmen</span>
+              </div>
+            </a>
+            <a href="#" class="contact-item magnetic" data-magnetic>
+              <div class="contact-icon">💼</div>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">linkedin.com/in/eliassimmen</span>
+              </div>
+            </a>
+            <a href="#" class="contact-item magnetic" data-magnetic>
+              <div class="contact-icon">🐦</div>
+              <div>
+                <span class="contact-label">Twitter / X</span>
+                <span class="contact-value">@eliassimmen</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal-right">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" id="formName" placeholder=" " required />
+              <label for="formName">Your Name</label>
+              <div class="form-line"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" id="formEmail" placeholder=" " required />
+              <label for="formEmail">Email Address</label>
+              <div class="form-line"></div>
+            </div>
+            <div class="form-group">
+              <input type="text" id="formSubject" placeholder=" " />
+              <label for="formSubject">Subject</label>
+              <div class="form-line"></div>
+            </div>
+            <div class="form-group">
+              <textarea id="formMessage" rows="5" placeholder=" " required></textarea>
+              <label for="formMessage">Message</label>
+              <div class="form-line"></div>
+            </div>
+            <button type="submit" class="btn-primary magnetic form-submit" data-magnetic>
+              <span class="btn-text">Send Message</span>
+              <span class="btn-icon">→</span>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <span>✓</span> Message sent! I'll reply soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-bracket">&lt;</span>ES<span class="logo-bracket">/&gt;</span>
+      </div>
+      <p class="footer-text">Designed & Built by <strong>Elias Simmen</strong></p>
+      <p class="footer-sub">© 2026 — All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-link magnetic" data-magnetic aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </a>
+        <a href="#" class="social-link magnetic" data-magnetic aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="#" class="social-link magnetic" data-magnetic aria-label="Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
