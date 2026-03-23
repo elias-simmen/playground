@@ -57,47 +57,94 @@ button { cursor: none; border: none; background: none; font-family: var(--font);
 /* ===== LOADER ===== */
 #loader {
   position: fixed; inset: 0; z-index: 9999;
-  background: var(--bg);
   display: flex; align-items: center; justify-content: center;
-  transition: opacity 0.6s, visibility 0.6s;
+  overflow: hidden;
 }
-#loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+#loader.gone { display: none; }
 
-.loader-inner { text-align: center; }
-.loader-text {
-  font-size: clamp(3rem, 8vw, 6rem);
+/* Colored background layer — transitions smoothly */
+.ldr-bg {
+  position: absolute; inset: 0;
+  background: #0a0a0f;
+  transition: background 0.35s ease;
+}
+
+/* Content sits above bg */
+.ldr-body {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 2.5rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* The clip container prevents overflow during slide */
+.ldr-slot {
+  overflow: hidden;
+  padding: 0.1em 0;
+}
+
+/* The word itself */
+.ldr-word {
+  font-family: var(--font);
   font-weight: 900;
-  font-family: var(--mono);
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  font-size: clamp(3rem, 11vw, 8.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+  white-space: nowrap;
+  /* default slide-in state */
+  transform: translateY(110%);
+  opacity: 0;
+  transition: none;
+}
+.ldr-word.enter {
+  transition: transform 0.38s cubic-bezier(0.22,1,0.36,1),
+              opacity   0.25s ease;
+  transform: translateY(0);
+  opacity: 1;
+}
+.ldr-word.exit {
+  transition: transform 0.3s cubic-bezier(0.55,0,1,0.45),
+              opacity   0.2s ease;
+  transform: translateY(-110%);
+  opacity: 0;
+}
+
+/* Name mode — gradient + bigger */
+.ldr-word.is-name {
+  font-size: clamp(2.6rem, 9vw, 7rem);
+  background: linear-gradient(120deg, #fff 40%, rgba(255,255,255,0.55));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 2rem;
-  animation: pulse 1s ease-in-out infinite;
-}
-.loader-bar {
-  width: 200px; height: 2px;
-  background: var(--border);
-  border-radius: 2px;
-  margin: 0 auto 1rem;
-  overflow: hidden;
-}
-.loader-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  border-radius: 2px;
-  animation: loadBar 1.8s ease-in-out forwards;
-}
-.loader-subtitle {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  letter-spacing: 2px;
-  text-transform: uppercase;
 }
 
-@keyframes loadBar { from { width: 0 } to { width: 100% } }
-@keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.6 } }
+/* Counter */
+.ldr-meta {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--mono);
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 2px;
+}
+.ldr-sep {
+  display: block; width: 28px; height: 1px;
+  background: rgba(255,255,255,0.25);
+}
+.ldr-index { color: rgba(255,255,255,0.75); }
+
+/* Curtain exit panels — sit on top of everything */
+.ldr-curtain {
+  position: absolute; left: 0; right: 0; z-index: 5;
+  transition: transform 0.72s cubic-bezier(0.76,0,0.24,1);
+}
+.ldr-curtain-top    { top: 0; bottom: 50%; background: #0a0a0f; transform: translateY(0); }
+.ldr-curtain-bottom { top: 50%; bottom: 0; background: #0a0a0f; transform: translateY(0); }
+
+#loader.exit .ldr-curtain-top    { transform: translateY(-100%); }
+#loader.exit .ldr-curtain-bottom { transform: translateY(100%); }
 
 /* ===== CURSOR ===== */
 .cursor-dot, .cursor-ring {
