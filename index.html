@@ -7,8 +7,12 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+
+  <!-- SCROLL PROGRESS -->
+  <div id="scrollProgress"></div>
 
   <!-- LOADER -->
   <div id="loader">
@@ -86,6 +90,13 @@
       <div class="badge-text">Available for Work • Open to Opportunities •</div>
     </div>
   </section>
+
+  <!-- AURORA BG (decorative) -->
+  <div class="aurora" aria-hidden="true">
+    <div class="aurora-orb aurora-orb-1"></div>
+    <div class="aurora-orb aurora-orb-2"></div>
+    <div class="aurora-orb aurora-orb-3"></div>
+  </div>
 
   <!-- ABOUT -->
   <section id="about" class="section">
@@ -227,7 +238,7 @@
       </div>
       <div class="projects-grid" id="projectsGrid">
 
-        <div class="project-card tilt-card" data-category="web" data-tilt>
+        <div class="project-card tilt-card holo-card" data-category="web" data-tilt>
           <div class="project-image">
             <div class="project-placeholder" style="--c1:#6366f1;--c2:#8b5cf6"></div>
             <div class="project-overlay">
@@ -243,7 +254,7 @@
           <div class="project-number">01</div>
         </div>
 
-        <div class="project-card tilt-card" data-category="app" data-tilt>
+        <div class="project-card tilt-card holo-card" data-category="app" data-tilt>
           <div class="project-image">
             <div class="project-placeholder" style="--c1:#06b6d4;--c2:#3b82f6"></div>
             <div class="project-overlay">
@@ -259,7 +270,7 @@
           <div class="project-number">02</div>
         </div>
 
-        <div class="project-card tilt-card" data-category="tool" data-tilt>
+        <div class="project-card tilt-card holo-card" data-category="tool" data-tilt>
           <div class="project-image">
             <div class="project-placeholder" style="--c1:#10b981;--c2:#06b6d4"></div>
             <div class="project-overlay">
@@ -275,7 +286,7 @@
           <div class="project-number">03</div>
         </div>
 
-        <div class="project-card tilt-card" data-category="web" data-tilt>
+        <div class="project-card tilt-card holo-card" data-category="web" data-tilt>
           <div class="project-image">
             <div class="project-placeholder" style="--c1:#f59e0b;--c2:#ef4444"></div>
             <div class="project-overlay">
@@ -291,7 +302,7 @@
           <div class="project-number">04</div>
         </div>
 
-        <div class="project-card tilt-card" data-category="app" data-tilt>
+        <div class="project-card tilt-card holo-card" data-category="app" data-tilt>
           <div class="project-image">
             <div class="project-placeholder" style="--c1:#a855f7;--c2:#ec4899"></div>
             <div class="project-overlay">
@@ -307,7 +318,7 @@
           <div class="project-number">05</div>
         </div>
 
-        <div class="project-card tilt-card" data-category="tool" data-tilt>
+        <div class="project-card tilt-card holo-card" data-category="tool" data-tilt>
           <div class="project-image">
             <div class="project-placeholder" style="--c1:#14b8a6;--c2:#6366f1"></div>
             <div class="project-overlay">
@@ -491,5 +502,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="three-bg.js"></script>
 </body>
 </html>
