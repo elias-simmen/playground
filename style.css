@@ -57,94 +57,63 @@ button { cursor: none; border: none; background: none; font-family: var(--font);
 /* ===== LOADER ===== */
 #loader {
   position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
   display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
 }
-#loader.gone { display: none; }
-
-/* Colored background layer — transitions smoothly */
-.ldr-bg {
-  position: absolute; inset: 0;
-  background: #0a0a0f;
-  transition: background 0.35s ease;
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-/* Content sits above bg */
-.ldr-body {
-  position: relative; z-index: 2;
+.loader-inner {
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 2.5rem;
-  text-align: center;
-  padding: 2rem;
+  align-items: center; gap: 2rem;
+  animation: loaderFadeIn 0.5s ease forwards;
 }
 
-/* The clip container prevents overflow during slide */
-.ldr-slot {
-  overflow: hidden;
-  padding: 0.1em 0;
+@keyframes loaderFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* The word itself */
-.ldr-word {
-  font-family: var(--font);
+.loader-logo {
+  font-family: var(--mono);
+  font-size: clamp(4rem, 12vw, 7rem);
   font-weight: 900;
-  font-size: clamp(3rem, 11vw, 8.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: #fff;
-  white-space: nowrap;
-  /* default slide-in state */
-  transform: translateY(110%);
-  opacity: 0;
-  transition: none;
-}
-.ldr-word.enter {
-  transition: transform 0.38s cubic-bezier(0.22,1,0.36,1),
-              opacity   0.25s ease;
-  transform: translateY(0);
-  opacity: 1;
-}
-.ldr-word.exit {
-  transition: transform 0.3s cubic-bezier(0.55,0,1,0.45),
-              opacity   0.2s ease;
-  transform: translateY(-110%);
-  opacity: 0;
-}
-
-/* Name mode — gradient + bigger */
-.ldr-word.is-name {
-  font-size: clamp(2.6rem, 9vw, 7rem);
-  background: linear-gradient(120deg, #fff 40%, rgba(255,255,255,0.55));
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: logoPulse 1.4s ease-in-out infinite;
+}
+@keyframes logoPulse {
+  0%, 100% { opacity: 1;   transform: scale(1);    }
+  50%       { opacity: 0.7; transform: scale(0.97); }
 }
 
-/* Counter */
-.ldr-meta {
-  display: flex; align-items: center; gap: 12px;
+.loader-bar-wrap {
+  width: clamp(140px, 30vw, 240px);
+  height: 3px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.loader-bar-fill {
+  height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), #06b6d4);
+  border-radius: 3px;
+  transition: width 0.12s ease;
+}
+
+.loader-label {
   font-family: var(--mono);
-  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
-  color: rgba(255,255,255,0.35);
-  letter-spacing: 2px;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
-.ldr-sep {
-  display: block; width: 28px; height: 1px;
-  background: rgba(255,255,255,0.25);
-}
-.ldr-index { color: rgba(255,255,255,0.75); }
-
-/* Curtain exit panels — sit on top of everything */
-.ldr-curtain {
-  position: absolute; left: 0; right: 0; z-index: 5;
-  transition: transform 0.72s cubic-bezier(0.76,0,0.24,1);
-}
-.ldr-curtain-top    { top: 0; bottom: 50%; background: #0a0a0f; transform: translateY(0); }
-.ldr-curtain-bottom { top: 50%; bottom: 0; background: #0a0a0f; transform: translateY(0); }
-
-#loader.exit .ldr-curtain-top    { transform: translateY(-100%); }
-#loader.exit .ldr-curtain-bottom { transform: translateY(100%); }
 
 /* ===== CURSOR ===== */
 .cursor-dot, .cursor-ring {

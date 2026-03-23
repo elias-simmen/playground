@@ -1,90 +1,29 @@
 /* ===== LOADER ===== */
 (function runLoader() {
-  const loader   = document.getElementById('loader');
-  const ldrBg    = document.getElementById('ldrBg');
-  const wordEl   = document.getElementById('ldrWord');
-  const indexEl  = document.getElementById('ldrIndex');
-  const totalEl  = document.getElementById('ldrTotal');
+  const loader  = document.getElementById('loader');
+  const barFill = document.getElementById('loaderBarFill');
+  if (!loader || !barFill) return;
 
-  const skills = [
-    { text: 'JavaScript',  bg: '#1a1200' },
-    { text: 'TypeScript',  bg: '#00091f' },
-    { text: 'React',       bg: '#001820' },
-    { text: 'Next.js',     bg: '#0a0a0f' },
-    { text: 'Node.js',     bg: '#001a0a' },
-    { text: 'Python',      bg: '#0d001f' },
-    { text: 'Docker',      bg: '#00061f' },
-    { text: 'AWS',         bg: '#1a0800' },
-    { text: 'Figma',       bg: '#1a001a' },
-    { text: 'Tailwind',    bg: '#001f1c' },
-    { text: 'GraphQL',     bg: '#18001f' },
-    { text: 'PostgreSQL',  bg: '#00061f' },
-    { text: 'MongoDB',     bg: '#001a08' },
-    { text: 'Git',         bg: '#1a0800' },
-  ];
-  const HOLD_MS = 320; // how long each word stays visible
-  const EXIT_WAIT = 1000; // pause on name before leaving
+  let progress = 0;
 
-  totalEl.textContent = String(skills.length).padStart(2, '0');
-
-  let idx = 0;
-
-  // Show the first word immediately
-  function showWord(text, bg, isName = false) {
-    // 1. Slide current word out
-    wordEl.classList.remove('enter');
-    wordEl.classList.add('exit');
-
-    // 2. After exit, swap text and slide new word in
-    setTimeout(() => {
-      wordEl.classList.remove('exit', 'is-name');
-      wordEl.textContent = text;
-      if (isName) wordEl.classList.add('is-name');
-      // Force reflow so transition fires
-      void wordEl.offsetWidth;
-      wordEl.classList.add('enter');
-
-      // Change background
-      ldrBg.style.background = bg;
-    }, 280);
-  }
-
-  function next() {
-    if (idx < skills.length) {
-      const s = skills[idx];
-      showWord(s.text, s.bg);
-      indexEl.textContent = String(idx + 1).padStart(2, '0');
-      idx++;
-      setTimeout(next, HOLD_MS);
-    } else {
-      // Land on name
-      showWord('Elias Simmen', '#0a0a0f', true);
-      indexEl.textContent = '✦';
-
-      setTimeout(() => {
-        // Sync curtain color with current bg before exit
-        document.querySelector('.ldr-curtain-top').style.background = '#0a0a0f';
-        document.querySelector('.ldr-curtain-bottom').style.background = '#0a0a0f';
-        loader.classList.add('exit');
-        setTimeout(() => {
-          loader.classList.add('gone');
-          document.querySelectorAll('#hero .reveal-up').forEach((el, i) => {
-            setTimeout(() => el.classList.add('visible'), i * 150);
-          });
-          startTypewriter();
-        }, 750);
-      }, EXIT_WAIT);
+  // Smoothly animate the bar to 100% over ~1.8s
+  const interval = setInterval(() => {
+    progress += Math.random() * 12 + 4;
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(interval);
     }
-  }
+    barFill.style.width = progress + '%';
+  }, 100);
 
-  // Enter first word from scratch (no exit needed)
-  wordEl.textContent = skills[0].text;
-  ldrBg.style.background = skills[0].bg;
-  indexEl.textContent = '01';
-  void wordEl.offsetWidth;
-  wordEl.classList.add('enter');
-  idx = 1;
-  setTimeout(next, HOLD_MS);
+  // Hide loader after bar completes + short pause
+  setTimeout(() => {
+    loader.classList.add('hidden');
+    document.querySelectorAll('#hero .reveal-up').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 150);
+    });
+    startTypewriter();
+  }, 2200);
 })();
 
 /* ===== SCROLL PROGRESS ===== */
